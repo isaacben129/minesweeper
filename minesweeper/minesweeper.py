@@ -221,6 +221,8 @@ class MinesweeperAI():
         # create new sentence
         sent = Sentence(neighbours, num_mines)
         self.knowledge.append(sent)
+
+        #inference
         for sentence in self.knowledge:
             if len(sentence.known_mines()) > 0:
                 for mine in sentence.known_mines():
