@@ -222,10 +222,10 @@ class MinesweeperAI():
         sent = Sentence(neighbours, num_mines)
         self.knowledge.append(sent)
         for sentence in self.knowledge:
-            if sentence.known_mines() != set():
+            if len(sentence.known_mines()) > 0:
                 for mine in sentence.known_mines():
                     self.mark_mine(mine)
-            if sentence.known_safes():
+            if len(sentence.known_safes()) > 0:
                 for safe in sentence.known_safes():
                     self.mark_safe(safe)
         for s2 in self.knowledge:
