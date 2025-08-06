@@ -234,7 +234,7 @@ class MinesweeperAI():
             for s1 in self.knowledge:
                 if s1.cells.issubset(s2.cells):
                     inferred = Sentence(s2.cells - s1.cells, s2.count - s1.count)
-                    print(inferred)
+                    print("inferred",inferred)
                     if inferred not in self.knowledge:
                         self.knowledge.append(inferred)
 
