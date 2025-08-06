@@ -274,3 +274,4 @@ class MinesweeperAI():
         return safe_rand_moves.pop()
 
 
+MinesweeperAI
