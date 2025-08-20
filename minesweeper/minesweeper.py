@@ -194,11 +194,9 @@ class MinesweeperAI():
             5) add any new sentences to the AI's knowledge base
                if they can be inferred from existing knowledge
         """
-        # add cell to moves made
+
         self.moves_made.add(cell)
-        # marking the cell as safe
         self.mark_safe(cell)
-        # getting a set of neighbours for the cell
         neighbours = set()
         num_mines = count
         for row in range(cell[0] - 1, cell[0] + 2):
@@ -206,19 +204,14 @@ class MinesweeperAI():
                 # Skip the original cell
                 if (row, col) == cell:
                     continue
-                # do not include a mine in the new set, reduce the count of mines
                 if (row, col) in self.mines:
                     num_mines -= 1
                     continue
-                # do not include any safe cells
                 if (row, col) in self.safes:
                     continue
-
-                # Check if the neighbor is within bounds
                 if 0 <= row < self.height and 0 <= col < self.width:
                     neighbours.add((row, col))
         print(neighbours)
-        # create new sentence
         sent = Sentence(neighbours, num_mines)
         self.knowledge.append(sent)
 
